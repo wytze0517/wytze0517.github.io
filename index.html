@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wytze Hempenius</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20242A;
+    --ink-soft:#4A5058;
+    --paper:#F5F1E7;
+    --paper-line:#DAD3C2;
+    --graphite:#1B2027;
+    --graphite-soft:#2A3038;
+    --cream:#EDE8DA;
+    --amber:#C98A3B;
+    --blue:#5C87A6;
+    --serif: 'Fraunces', serif;
+    --sans: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--graphite);
+    color:var(--cream);
+    font-family:var(--sans);
+    line-height:1.5;
+  }
+
+  a{ color:inherit; }
+
+  ::selection{ background:var(--amber); color:var(--graphite); }
+
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    padding:28px 0 0;
+  }
+  nav.wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding-bottom:20px;
+    border-bottom:1px solid rgba(237,232,218,0.14);
+  }
+  .mark{
+    font-family:var(--mono);
+    font-size:14px;
+    letter-spacing:0.02em;
+    color:var(--cream);
+  }
+  .navlinks{
+    display:flex;
+    gap:24px;
+    font-family:var(--mono);
+    font-size:13px;
+  }
+  .navlinks a{
+    text-decoration:none;
+    color:var(--paper-line);
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .navlinks a:hover, .navlinks a:focus-visible{
+    color:var(--amber);
+    border-color:var(--amber);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:64px 0 72px;
+    display:grid;
+    grid-template-columns:1.15fr 1fr;
+    gap:40px;
+    align-items:center;
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-optical-sizing:auto;
+    font-weight:500;
+    font-size:clamp(34px, 5vw, 52px);
+    line-height:1.08;
+    margin:0 0 20px;
+    color:var(--paper);
+  }
+  .hero p.lede{
+    max-width:46ch;
+    font-size:17px;
+    color:#C9C4B6;
+    margin:0 0 22px;
+  }
+  .hero .tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .tag{
+    font-family:var(--mono);
+    font-size:12px;
+    padding:5px 10px;
+    border:1px solid rgba(237,232,218,0.22);
+    border-radius:3px;
+    color:#C9C4B6;
+  }
+
+  .scope{
+    background:var(--paper);
+    border-radius:4px;
+    padding:18px 18px 14px;
+  }
+  .scope svg{ display:block; width:100%; height:auto; }
+  .scope figcaption{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--ink-soft);
+    margin-top:6px;
+    display:flex;
+    justify-content:space-between;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{ padding:56px 0; }
+  section + section{ border-top:1px solid rgba(237,232,218,0.1); }
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:32px;
+  }
+  .section-head h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:26px;
+    margin:0;
+    color:var(--paper);
+  }
+  .section-head .rule{
+    flex:1;
+    height:1px;
+    background:rgba(237,232,218,0.14);
+  }
+
+  /* ---------- FOCUS ---------- */
+  .focus-item{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:28px;
+    padding:26px 0;
+    border-top:1px solid rgba(237,232,218,0.1);
+  }
+  .focus-item:first-of-type{ border-top:none; }
+  .focus-item h3{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:19px;
+    margin:0;
+    color:var(--paper);
+  }
+  .focus-item .accent{
+    display:inline-block;
+    width:8px; height:8px;
+    border-radius:50%;
+    margin-right:8px;
+    position:relative;
+    top:-1px;
+  }
+  .focus-item p{
+    margin:10px 0 12px;
+    color:#C9C4B6;
+    font-size:15px;
+    max-width:56ch;
+  }
+  .focus-item .tags{ display:flex; flex-wrap:wrap; gap:8px; }
+
+  /* ---------- WORK LOG ---------- */
+  .log-entry{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:20px;
+    padding:16px 0;
+    border-top:1px solid rgba(237,232,218,0.1);
+    font-size:14.5px;
+  }
+  .log-entry:first-of-type{ border-top:none; }
+  .log-entry .stamp{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--blue);
+    padding-top:2px;
+  }
+  .log-entry p{ margin:0; color:#C9C4B6; }
+  .log-entry strong{ color:var(--paper); font-weight:500; }
+
+  /* ---------- TOOLS ---------- */
+  .tool-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .tool-grid span{
+    font-family:var(--mono);
+    font-size:13px;
+    padding:8px 14px;
+    background:var(--graphite-soft);
+    border:1px solid rgba(237,232,218,0.14);
+    border-radius:3px;
+    color:var(--cream);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:48px 0 64px;
+  }
+  footer .foot-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  footer h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:28px;
+    margin:0 0 10px;
+    color:var(--paper);
+  }
+  footer p{ margin:0; color:#C9C4B6; font-size:15px; }
+  .gh-link{
+    font-family:var(--mono);
+    font-size:14px;
+    text-decoration:none;
+    color:var(--paper);
+    border:1px solid rgba(237,232,218,0.3);
+    padding:10px 16px;
+    border-radius:3px;
+    transition:background .15s ease, color .15s ease;
+    white-space:nowrap;
+  }
+  .gh-link:hover, .gh-link:focus-visible{
+    background:var(--amber);
+    color:var(--graphite);
+    border-color:var(--amber);
+  }
+  footer .fine{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:32px;
+    padding-top:20px;
+    border-top:1px solid rgba(237,232,218,0.1);
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--amber);
+    outline-offset:3px;
+  }
+
+  @media (max-width:720px){
+    .hero{ grid-template-columns:1fr; padding-top:40px; }
+    .focus-item{ grid-template-columns:1fr; gap:8px; }
+    .log-entry{ grid-template-columns:1fr; gap:4px; }
+    .navlinks{ gap:16px; }
+    footer .foot-inner{ flex-direction:column; align-items:flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <span class="mark">W. Hempenius</span>
+    <div class="navlinks">
+      <a href="#focus">Focus</a>
+      <a href="#work">Work</a>
+      <a href="#tools">Tools</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div>
+      <h1>Control systems engineer,<br>studying computer vision.</h1>
+      <p class="lede">I design controllers and monitor process performance in MATLAB, and build vision pipelines — from stereo depth to multi-camera 3D reconstruction — in Python.</p>
+      <div class="tags">
+        <span class="tag">MATLAB</span>
+        <span class="tag">Python</span>
+        <span class="tag">TensorFlow / Keras</span>
+        <span class="tag">Control Theory</span>
+      </div>
+    </div>
+    <figure class="scope">
+      <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+        <!-- grid -->
+        <g stroke="#DAD3C2" stroke-width="1">
+          <line x1="0" y1="30" x2="320" y2="30"/>
+          <line x1="0" y1="60" x2="320" y2="60"/>
+          <line x1="0" y1="90" x2="320" y2="90"/>
+          <line x1="0" y1="120" x2="320" y2="120"/>
+          <line x1="0" y1="150" x2="320" y2="150"/>
+        </g>
+        <!-- settling band -->
+        <rect x="0" y="82" width="320" height="16" fill="#5C87A6" opacity="0.12"/>
+        <!-- setpoint -->
+        <line x1="0" y1="90" x2="320" y2="90" stroke="#5C87A6" stroke-width="1.2" stroke-dasharray="3 4"/>
+        <!-- step response curve with overshoot settling -->
+        <path d="M0,150 L40,150 C70,150 75,20 100,20 C118,20 122,70 140,70 C155,70 158,105 172,105 C184,105 187,85 198,85 C207,85 210,95 220,95 C227,95 230,90 320,90"
+          fill="none" stroke="#C98A3B" stroke-width="2.4" stroke-linecap="round"/>
+        <text x="6" y="16" font-family="IBM Plex Mono" font-size="10" fill="#4A5058">c(t)</text>
+        <text x="248" y="82" font-family="IBM Plex Mono" font-size="10" fill="#4A5058">setpoint</text>
+      </svg>
+      <figcaption>
+        <span>fig. 01 — step response, OCI-tuned</span>
+        <span>settling ≈ 4.2 s</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section id="focus" class="wrap">
+    <div class="section-head">
+      <h2>Focus areas</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="focus-item">
+      <h3><span class="accent" style="background:var(--amber)"></span>Control Systems</h3>
+      <div>
+        <p>Controller design and closed-loop performance monitoring — PI/OCI tuning, anti-windup, root locus and discretization analysis, and statistical process control with Shewhart and EWMA charts.</p>
+        <div class="tags">
+          <span class="tag">Lambda tuning</span>
+          <span class="tag">Shewhart / EWMA</span>
+          <span class="tag">Root locus</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="focus-item">
+      <h3><span class="accent" style="background:var(--blue)"></span>Computer Vision</h3>
+      <div>
+        <p>Multi-camera 3D reconstruction using epipolar geometry and SVD-based DLT triangulation, plus stereo depth pipelines built on plane sweep and disparity estimation.</p>
+        <div class="tags">
+          <span class="tag">Epipolar geometry</span>
+          <span class="tag">Stereo depth</span>
+          <span class="tag">Point cloud filtering</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="focus-item">
+      <h3><span class="accent" style="background:#8C8368"></span>Neural Networks</h3>
+      <div>
+        <p>Architecture design across MLP, CNN, RNN, RBF, SOM, Hopfield, and ELM, including transfer learning with VGG16 on CIFAR-10.</p>
+        <div class="tags">
+          <span class="tag">CNN / RNN</span>
+          <span class="tag">Transfer learning</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="wrap">
+    <div class="section-head">
+      <h2>Recent work</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="log-entry">
+      <span class="stamp">EPC12</span>
+      <p><strong>Multi-regime process monitoring.</strong> OCI controller redesign across four operating regimes, validated with loop gain products and before/after in-control rates.</p>
+    </div>
+    <div class="log-entry">
+      <span class="stamp">EPC11</span>
+      <p><strong>Closed-loop performance monitoring.</strong> Shewhart, EWMA, and boxplot analysis on step response data — identified a sustained shift in control effort from step 21 onward.</p>
+    </div>
+    <div class="log-entry">
+      <span class="stamp">EPC9</span>
+      <p><strong>Water tank level control.</strong> PI controller design via lambda tuning and OCI data-driven design, with anti-windup.</p>
+    </div>
+    <div class="log-entry">
+      <span class="stamp">CV</span>
+      <p><strong>Multi-camera skeleton reconstruction.</strong> Four-camera 3D pipeline using fundamental matrices and SVD-based DLT triangulation.</p>
+    </div>
+    <div class="log-entry">
+      <span class="stamp">CV</span>
+      <p><strong>Stereo depth reconstruction.</strong> Plane sweep and disparity maps, with Z-range and k-NN outlier filtering on the resulting point cloud.</p>
+    </div>
+  </section>
+
+  <section id="tools" class="wrap">
+    <div class="section-head">
+      <h2>Tools</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tool-grid">
+      <span>MATLAB</span>
+      <span>Python</span>
+      <span>TensorFlow / Keras</span>
+      <span>NumPy</span>
+      <span>OpenCV</span>
+      <span>MATLAB Live Script</span>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-inner">
+      <div>
+        <h2>Get in touch</h2>
+        <p>Find my projects and coursework on GitHub.</p>
+      </div>
+      <a class="gh-link" href="https://github.com/wytze0517" target="_blank" rel="noopener">github.com/wytze0517</a>
+    </div>
+    <div class="fine">Wytze Hempenius — Control Systems Engineering</div>
+  </div>
+</footer>
+
+</body>
+</html>
