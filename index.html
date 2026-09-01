@@ -81,7 +81,7 @@
 
     /* ---------- HERO ---------- */
     .hero{
-      padding:64px 0 72px;
+      padding:64px 0 40px;
       display:grid;
       grid-template-columns:1.15fr 1fr;
       gap:40px;
@@ -146,45 +146,78 @@
       justify-content:space-between;
     }
 
-    /* ---------- PAPER AVATAR (explainer) ---------- */
+    /* ---------- PAPER AVATAR / EXPLAINER ---------- */
     .paper-avatar {
       background: var(--graphite-soft);
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin: 12px 0 0;
-      border-left: 4px solid var(--amber);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin: 0 0 20px 0;
+      border: 1px solid rgba(184, 122, 46, 0.25);
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 28px;
       flex-wrap: wrap;
+      transition: border-color 0.3s ease;
     }
-    .paper-avatar svg {
+    .paper-avatar:hover {
+      border-color: var(--amber);
+    }
+    .avatar-figure {
       flex-shrink: 0;
-      width: 80px;
-      height: 80px;
-      background: var(--graphite);
-      border-radius: 50%;
-      padding: 12px;
-      box-shadow: 0 0 0 2px rgba(184, 122, 46, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
     }
-    .paper-avatar .explainer {
+    .avatar-figure svg {
+      width: 96px;
+      height: 96px;
+      display: block;
+    }
+    .avatar-figure .avatar-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-soft);
+      background: var(--paper);
+      padding: 2px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.03em;
+    }
+    .explainer {
       flex: 1;
-      min-width: 180px;
+      min-width: 200px;
     }
-    .paper-avatar .explainer strong {
+    .explainer .badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 11px;
+      background: var(--amber);
+      color: var(--graphite);
+      padding: 2px 12px;
+      border-radius: 20px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+    }
+    .explainer strong {
       color: var(--paper);
       font-weight: 600;
       display: block;
-      font-size: 1.05rem;
-      margin-bottom: 4px;
+      font-size: 1.15rem;
+      margin-bottom: 6px;
     }
-    .paper-avatar .explainer p {
-      margin: 0;
-      color: #b8b3a4;
+    .explainer p {
+      margin: 0 0 6px 0;
+      color: #c5bfb0;
       font-size: 0.95rem;
-      line-height: 1.5;
+      line-height: 1.6;
+      max-width: 56ch;
     }
-    .paper-avatar .explainer .paper-link {
+    .explainer .highlight {
+      color: var(--amber);
+      font-weight: 600;
+    }
+    .explainer .paper-link {
       display: inline-block;
       margin-top: 8px;
       font-family: var(--mono);
@@ -192,6 +225,10 @@
       color: var(--amber);
       text-decoration: underline;
       font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .explainer .paper-link:hover {
+      color: #d99d4c;
     }
 
     /* ---------- SECTION HEADERS ---------- */
@@ -340,7 +377,7 @@
       .navlinks{ gap:16px; }
       footer .foot-inner{ flex-direction:column; align-items:flex-start; }
       .paper-avatar { flex-direction: column; align-items: flex-start; }
-      .paper-avatar svg { width: 64px; height: 64px; }
+      .avatar-figure { align-self: center; }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -405,35 +442,50 @@
   </section>
 
   <!-- PAPER AVATAR / EXPLAINER -->
-  <div class="wrap" style="margin-top: -20px; margin-bottom: 20px;">
+  <div class="wrap">
     <div class="paper-avatar">
-      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- background circle -->
-        <circle cx="50" cy="50" r="44" fill="#1e232b" stroke="#b87a2e" stroke-width="2"/>
-        <!-- tank icon (simplified QTS) -->
-        <rect x="18" y="40" width="18" height="30" rx="2" fill="#4f7a96" opacity="0.9"/>
-        <rect x="64" y="40" width="18" height="30" rx="2" fill="#4f7a96" opacity="0.9"/>
-        <rect x="32" y="28" width="18" height="30" rx="2" fill="#b87a2e" opacity="0.8"/>
-        <rect x="50" y="28" width="18" height="30" rx="2" fill="#b87a2e" opacity="0.8"/>
-        <!-- pipes / connections -->
-        <line x1="27" y1="42" x2="27" y2="34" stroke="#b8b3a4" stroke-width="2" stroke-dasharray="2 2"/>
-        <line x1="73" y1="42" x2="73" y2="34" stroke="#b8b3a4" stroke-width="2" stroke-dasharray="2 2"/>
-        <line x1="36" y1="30" x2="44" y2="30" stroke="#b8b3a4" stroke-width="2"/>
-        <line x1="56" y1="30" x2="64" y2="30" stroke="#b8b3a4" stroke-width="2"/>
-        <!-- disturbance arrow -->
-        <path d="M85 70 L92 65 L85 60" stroke="#cf8f3f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="75" y="58" font-family="IBM Plex Mono" font-size="8" fill="#cf8f3f">d</text>
-        <!-- observer eye -->
-        <circle cx="50" cy="78" r="8" fill="#1a1e24" stroke="#d6d0c0" stroke-width="1.5"/>
-        <circle cx="50" cy="78" r="3" fill="#b87a2e"/>
-        <!-- plus sign (feedforward) -->
-        <text x="44" y="94" font-family="IBM Plex Mono" font-size="10" fill="#b8b3a4">+</text>
-        <text x="54" y="94" font-family="IBM Plex Mono" font-size="10" fill="#b8b3a4">→</text>
-      </svg>
+      <div class="avatar-figure">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- body / shoulders -->
+          <circle cx="50" cy="58" r="32" fill="#1e232b" stroke="#b87a2e" stroke-width="2"/>
+          <!-- head -->
+          <circle cx="50" cy="32" r="20" fill="#2a313c" stroke="#d6d0c0" stroke-width="2"/>
+          <!-- eyes -->
+          <circle cx="42" cy="28" r="3.5" fill="#d6d0c0"/>
+          <circle cx="58" cy="28" r="3.5" fill="#d6d0c0"/>
+          <circle cx="42" cy="28" r="2" fill="#0f1217"/>
+          <circle cx="58" cy="28" r="2" fill="#0f1217"/>
+          <!-- glasses (smart look) -->
+          <rect x="35" y="23" width="13" height="12" rx="2" stroke="#b87a2e" stroke-width="1.5" fill="none"/>
+          <rect x="52" y="23" width="13" height="12" rx="2" stroke="#b87a2e" stroke-width="1.5" fill="none"/>
+          <line x1="48" y1="29" x2="52" y2="29" stroke="#b87a2e" stroke-width="1.5"/>
+          <!-- smile -->
+          <path d="M42 39 Q50 45 58 39" stroke="#d6d0c0" stroke-width="1.8" stroke-linecap="round"/>
+          <!-- tank diagram on body -->
+          <rect x="36" y="48" width="10" height="14" rx="1.5" fill="#4f7a96" opacity="0.8"/>
+          <rect x="54" y="48" width="10" height="14" rx="1.5" fill="#4f7a96" opacity="0.8"/>
+          <rect x="43" y="42" width="14" height="12" rx="1.5" fill="#b87a2e" opacity="0.7"/>
+          <!-- flow arrows -->
+          <path d="M32 55 L26 55 L26 48" stroke="#cf8f3f" stroke-width="2" stroke-linecap="round"/>
+          <path d="M68 55 L74 55 L74 48" stroke="#cf8f3f" stroke-width="2" stroke-linecap="round"/>
+          <!-- disturbance arrow -->
+          <path d="M82 62 L88 58 L82 54" stroke="#cf8f3f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="74" y="52" font-family="IBM Plex Mono" font-size="7" fill="#cf8f3f">d</text>
+          <!-- observer "eye" on chest -->
+          <circle cx="50" cy="69" r="7" fill="#0f1217" stroke="#d6d0c0" stroke-width="1.5"/>
+          <circle cx="50" cy="69" r="2.5" fill="#b87a2e"/>
+        </svg>
+        <span class="avatar-label">DO-BSSTC</span>
+      </div>
       <div class="explainer">
-        <strong>📄 My latest paper: DO-BSSTC</strong>
-        <p>A disturbance-observer enhanced controller for a quadruple-tank system. It estimates unknown pump-flow disturbances and compensates them in real-time — reducing error by <strong style="color:var(--amber);">98.55%</strong> vs. standard control.</p>
-        <a href="newpaper.pdf" target="_blank" class="paper-link">Read the full paper →</a>
+        <span class="badge">📄 Latest paper</span>
+        <strong>Disturbance-Observer Enhanced Backstepping Super-Twisting Control</strong>
+        <p>
+          I designed a controller that <span class="highlight">estimates unknown disturbances</span> (like pump-flow losses) 
+          and compensates them in real-time. For a quadruple-tank system, it <span class="highlight">reduces error by 98.55%</span> 
+          compared to standard control — while keeping the actuator signal smooth and avoiding chattering.
+        </p>
+        <a href="newpaper.pdf" target="_blank" class="paper-link">📖 Read the full paper →</a>
       </div>
     </div>
   </div>
