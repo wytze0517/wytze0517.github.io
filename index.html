@@ -23,10 +23,10 @@
       --sans: 'IBM Plex Sans', sans-serif;
       --mono: 'IBM Plex Mono', monospace;
     }
-
+ 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
-
+ 
     body{
       margin:0;
       background:
@@ -37,12 +37,12 @@
       font-family:var(--sans);
       line-height:1.5;
     }
-
+ 
     a{ color:inherit; }
     ::selection{ background:var(--amber); color:var(--graphite); }
-
+ 
     .wrap{ max-width:920px; margin:0 auto; padding:0 32px; }
-
+ 
     /* ---------- NAV ---------- */
     header{ padding:28px 0 0; }
     nav.wrap{ display:flex; justify-content:space-between; align-items:baseline; padding-bottom:20px; border-bottom:1px solid rgba(227,222,210,0.12); }
@@ -50,7 +50,7 @@
     .navlinks{ display:flex; gap:24px; font-family:var(--mono); font-size:13px; }
     .navlinks a{ text-decoration:none; color:var(--paper-line); border-bottom:1px solid transparent; padding-bottom:2px; transition:color .15s ease, border-color .15s ease; }
     .navlinks a:hover, .navlinks a:focus-visible{ color:var(--amber); border-color:var(--amber); }
-
+ 
     /* ---------- HERO ---------- */
     .hero{ padding:64px 0 40px; display:grid; grid-template-columns:1.15fr 1fr; gap:40px; align-items:center; }
     .hero h1{ font-family:var(--serif); font-weight:500; font-size:clamp(34px, 5vw, 52px); line-height:1.08; margin:0 0 20px; color:var(--paper); }
@@ -59,24 +59,24 @@
     .tag{ font-family:var(--mono); font-size:12px; padding:5px 10px; border:1px solid rgba(227,222,210,0.18); border-radius:3px; color:#b8b3a4; }
     .tag-paper{ background:var(--amber); color:var(--graphite); border-color:var(--amber); font-weight:500; transition:background .2s ease, transform .1s ease; cursor:pointer; }
     .tag-paper:hover{ background:#cf8f3f; transform:scale(1.02); }
-
+ 
     .scope{ background:var(--paper); border-radius:4px; padding:18px 18px 14px; box-shadow:0 18px 40px -18px rgba(0,0,0,0.55); }
     .scope svg{ display:block; width:100%; height:auto; }
     .scope figcaption{ font-family:var(--mono); font-size:11px; color:var(--ink-soft); margin-top:6px; display:flex; justify-content:space-between; }
-
+ 
     /* ---------- SECTION HEADERS ---------- */
     section{ padding:56px 0; }
     section + section{ border-top:1px solid rgba(227,222,210,0.08); }
     .section-head{ display:flex; align-items:baseline; gap:14px; margin-bottom:32px; }
     .section-head h2{ font-family:var(--serif); font-weight:500; font-size:26px; margin:0; color:var(--paper); }
     .section-head .rule{ flex:1; height:1px; background:rgba(227,222,210,0.12); }
-
+ 
     .log-entry{ display:grid; grid-template-columns:120px 1fr; gap:20px; padding:16px 0; border-top:1px solid rgba(227,222,210,0.08); font-size:14.5px; transition:background .15s ease; }
     .log-entry:hover{ background:rgba(227,222,210,0.03); }
     .log-entry .stamp{ font-family:var(--mono); font-size:12px; color:var(--blue); }
     .tool-grid{ display:flex; flex-wrap:wrap; gap:10px; }
     .tool-grid span{ font-family:var(--mono); font-size:13px; padding:8px 14px; background:var(--graphite-soft); border:1px solid rgba(227,222,210,0.12); border-radius:3px; }
-
+ 
     /* =========================================================
        TALKING HEADS — real CSS 3D busts.
        Each head is a small scene graph (perspective on the
@@ -88,11 +88,11 @@
        the far ear, jaw foreshortening) is genuine 3D, not a
        flat icon swap.
        ========================================================= */
-
+ 
     .assistant-container, .chatbot-container{ position:fixed; bottom:30px; z-index:1000; display:flex; flex-direction:column; align-items:flex-end; }
     .assistant-container{ right:30px; }
     .chatbot-container{ right:132px; }
-
+ 
     .speech-bubble, .chat-panel{
       background:var(--paper); color:var(--ink); border-radius:12px; width:280px; margin-bottom:15px;
       box-shadow:0 10px 25px rgba(0,0,0,0.3); display:none; position:relative;
@@ -101,34 +101,34 @@
     .speech-bubble::after{ content:''; position:absolute; bottom:-10px; right:25px; border-width:10px 10px 0; border-style:solid; border-color:var(--amber) transparent transparent; }
     .speech-bubble h4{ margin:0 0 8px 0; font-family:var(--serif); color:var(--amber); font-size:16px; font-weight:500; }
     .speech-bubble a{ font-family:var(--mono); font-size:12px; color:var(--amber); text-decoration:underline; }
-
+ 
     .chat-panel{ width:300px; border:2px solid var(--blue); overflow:hidden; }
     .chat-panel::after{ content:''; position:absolute; bottom:-10px; right:25px; border-width:10px 10px 0; border-style:solid; border-color:var(--blue) transparent transparent; }
     .chat-header{ padding:12px 16px; background:var(--blue); color:var(--paper); font-family:var(--serif); font-size:15px; }
     .chat-body{ padding:14px; }
-
+ 
     .chat-explain-btn{ width:100%; font-family:var(--mono); font-size:11.5px; background:var(--graphite-soft); color:var(--paper); border:1px solid var(--blue-dim); padding:8px 10px; border-radius:4px; cursor:pointer; margin-bottom:10px; text-align:left; transition:border-color .15s ease; }
     .chat-explain-btn:hover{ border-color:var(--blue); }
-
+ 
     .chat-settings{ display:none; margin-bottom:10px; }
     .chat-settings.show{ display:block; }
     .chat-settings label{ font-family:var(--mono); font-size:10.5px; color:var(--ink-soft); display:block; margin-bottom:4px; }
     .chat-settings input{ width:100%; font-size:12px; padding:6px 8px; border:1px solid var(--paper-line); border-radius:4px; margin-bottom:6px; box-sizing:border-box; font-family:var(--mono); }
     .chat-settings button{ font-family:var(--mono); font-size:11px; background:var(--graphite-soft); color:var(--paper); border:none; padding:5px 10px; border-radius:4px; cursor:pointer; }
-
+ 
     .chat-log{ max-height:220px; overflow-y:auto; margin-bottom:10px; font-size:13.5px; }
     .chat-msg{ margin-bottom:10px; }
     .chat-msg .who{ font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.04em; color:var(--blue); display:block; margin-bottom:2px; }
     .chat-msg.user .who{ color:var(--amber); }
     .chat-msg p{ margin:0; white-space:pre-wrap; }
-
+ 
     .chat-input-row{ display:flex; gap:6px; }
     .chat-input-row input{ flex:1; font-size:13px; padding:8px 10px; border:1px solid var(--paper-line); border-radius:4px; }
     .chat-input-row button{ background:var(--blue); color:var(--paper); border:none; padding:8px 12px; border-radius:4px; cursor:pointer; font-size:13px; }
     .chat-input-row button:disabled{ opacity:.5; cursor:default; }
-
+ 
     .chat-gear{ font-family:var(--mono); font-size:10.5px; color:var(--ink-soft); text-decoration:underline; cursor:pointer; display:inline-block; margin-bottom:8px; }
-
+ 
     /* --- head shell (hit target + perspective root) --- */
     .avatar-shell{
       position:relative;
@@ -139,19 +139,19 @@
     }
     .avatar-shell:hover{ transform:translateY(-3px); }
     .avatar-shell:focus-visible{ outline:2px solid var(--paper); outline-offset:4px; border-radius:12px; }
-
+ 
     .glow{
       position:absolute; left:50%; top:44%; width:84px; height:84px;
       transform:translate(-50%,-50%); border-radius:50%;
       filter:blur(10px); opacity:.28; transition:opacity .3s ease, transform .3s ease; pointer-events:none;
     }
     .glow.active{ opacity:.85; transform:translate(-50%,-50%) scale(1.3); }
-
+ 
     .bust-base{
       position:absolute; left:50%; bottom:0; width:56px; height:24px;
       transform:translateX(-50%); border-radius:16px 16px 4px 4px; opacity:.22; filter:blur(1px);
     }
-
+ 
     .scale-wrap{
       position:absolute; inset:0;
       transform-style:preserve-3d;
@@ -160,32 +160,32 @@
       display:flex; align-items:flex-start; justify-content:center;
     }
     .scale-wrap.active{ transform:scale(1.34); }
-
+ 
     .rotate-wrap{
       position:relative; width:66px; height:66px; margin-top:8px;
       transform-style:preserve-3d;
     }
-
+ 
     .skull{ position:absolute; inset:0; border-radius:50%; transform:translateZ(0px); box-shadow:inset -9px -11px 18px rgba(0,0,0,.5), inset 6px 8px 16px rgba(255,255,255,.08); }
     .skull::after{ content:''; position:absolute; top:10%; left:16%; width:34%; height:26%; border-radius:50%; background:rgba(255,255,255,0.16); filter:blur(4px); }
-
+ 
     .ear{ position:absolute; top:24px; width:11px; height:18px; border-radius:50%; }
     .ear-l{ left:-6px; transform:translateZ(2px) rotateY(-72deg); }
     .ear-r{ right:-6px; transform:translateZ(2px) rotateY(72deg); }
-
+ 
     .brow{ position:absolute; top:19px; width:15px; height:3px; border-radius:2px; transform:translateZ(31px); }
     .brow-l{ left:12px; transform:translateZ(31px) rotate(-8deg); }
     .brow-r{ right:12px; transform:translateZ(31px) rotate(8deg); }
-
+ 
     .eye{ position:absolute; top:25px; width:8px; height:8px; border-radius:50%; transform:translateZ(32px); transition:transform 85ms ease; }
     .eye-l{ left:15px; }
     .eye-r{ right:15px; }
     .eye.blink{ transform:translateZ(32px) scaleY(.12); }
-
+ 
     .nose{ position:absolute; top:30px; left:50%; width:6px; height:13px; transform:translateX(-50%) translateZ(34px); border-radius:0 0 5px 5px; opacity:.55; }
-
+ 
     .jaw{ position:absolute; top:41px; left:50%; width:22px; height:11px; border-radius:0 0 11px 11px; transform-origin:top center; will-change:transform; }
-
+ 
     .avatar-bot .glow{ background:radial-gradient(circle, rgba(184,122,46,.6) 0%, transparent 70%); }
     .avatar-bot .bust-base{ background:linear-gradient(180deg, var(--amber) 0%, rgba(0,0,0,0) 100%); }
     .avatar-bot .skull{ background:radial-gradient(circle at 32% 26%, #d79a52 0%, #8a5a24 55%, #221a10 100%); }
@@ -193,7 +193,7 @@
     .avatar-bot .brow{ background:#5c3c16; }
     .avatar-bot .eye{ background:#1c130a; }
     .avatar-bot .jaw{ background:#1c130a; box-shadow:inset 0 3px 5px rgba(0,0,0,.5); }
-
+ 
     .avatar-bot2 .glow{ background:radial-gradient(circle, rgba(79,122,150,.6) 0%, transparent 70%); }
     .avatar-bot2 .bust-base{ background:linear-gradient(180deg, var(--blue) 0%, rgba(0,0,0,0) 100%); }
     .avatar-bot2 .skull{ background:radial-gradient(circle at 32% 26%, #a7cbe0 0%, #3f6d89 55%, #101a22 100%); }
@@ -203,7 +203,7 @@
     .avatar-bot2 .jaw{ background:#0b141a; box-shadow:inset 0 3px 5px rgba(0,0,0,.5); }
     .avatar-bot2 .antenna{ position:absolute; left:50%; top:-10px; width:2px; height:12px; background:var(--blue); transform:translateX(-50%) translateZ(2px); }
     .avatar-bot2 .antenna::after{ content:''; position:absolute; top:-4px; left:50%; width:5px; height:5px; border-radius:50%; background:var(--blue); transform:translateX(-50%); }
-
+ 
     @media (max-width:720px){
       .hero{ grid-template-columns:1fr; }
       .assistant-container{ bottom:20px; right:20px; }
@@ -214,7 +214,7 @@
   </style>
 </head>
 <body>
-
+ 
 <header>
   <nav class="wrap">
     <span class="mark">W. Hempenius</span>
@@ -226,7 +226,7 @@
     </div>
   </nav>
 </header>
-
+ 
 <main>
   <section class="hero wrap">
     <div>
@@ -250,7 +250,7 @@
       <figcaption><span>fig. 01 — DO-BSSTC Response</span><span>settling ≈ 0.01 s</span></figcaption>
     </figure>
   </section>
-
+ 
   <!-- OTHER SECTIONS (REVISE AS NEEDED) -->
   <section id="work" class="wrap">
     <div class="section-head"><h2>Recent work</h2><div class="rule"></div></div>
@@ -260,7 +260,7 @@
     </div>
   </section>
 </main>
-
+ 
 <!-- ASSISTANT AVATAR #1: PAPER EXPLAINER -->
 <div class="assistant-container">
   <div class="speech-bubble" id="speechBubble">
@@ -268,7 +268,7 @@
     <p>Hi! Wytze's latest paper develops a controller that can 'see' and fix unknown disturbances in real-time. For the quadruple-tank system, it reduced tracking errors by over 98% while keeping the pumps running smoothly. Click me to stop!</p>
     <a href="newpaper.pdf" target="_blank">View full PDF →</a>
   </div>
-
+ 
   <div class="avatar-shell avatar-bot" id="avatarBot" onclick="toggleAssistant()" role="button" tabindex="0" aria-label="Paper explainer assistant">
     <div class="glow" id="glow1"></div>
     <div class="bust-base"></div>
@@ -287,7 +287,7 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- ASSISTANT AVATAR #2: LIVE CHATBOT (talks to LM Studio via ngrok) -->
 <div class="chatbot-container">
   <div class="chat-panel" id="chatPanel">
@@ -307,7 +307,7 @@
       </div>
     </div>
   </div>
-
+ 
   <div class="avatar-shell avatar-bot2" id="avatarBot2" onclick="toggleChat()" role="button" tabindex="0" aria-label="Live chatbot assistant">
     <div class="glow" id="glow2"></div>
     <div class="bust-base"></div>
@@ -327,7 +327,7 @@
     </div>
   </div>
 </div>
-
+ 
 <script>
   /* =========================================================
      3D head engine — one requestAnimationFrame loop per head.
@@ -340,14 +340,14 @@
   function initHead(cfg){
     let talking = false;
     let jawCurrent = 0, jawTarget = 0, nextJawChange = 0;
-
+ 
     function blinkLoop(){
       cfg.eyes.forEach(e => e.classList.add('blink'));
       setTimeout(() => cfg.eyes.forEach(e => e.classList.remove('blink')), 110);
       setTimeout(blinkLoop, 2600 + Math.random() * 3200);
     }
     blinkLoop();
-
+ 
     function frame(now){
       const ampY = talking ? 20 : 12;
       const ampX = talking ? 7 : 4;
@@ -355,7 +355,7 @@
       const ry = Math.sin(now * speed) * ampY;
       const rx = Math.sin(now * speed * 0.7 + 1) * ampX;
       cfg.rotateWrap.style.transform = `rotateY(${ry}deg) rotateX(${rx}deg)`;
-
+ 
       if (talking){
         if (now > nextJawChange){
           jawTarget = 5 + Math.random() * 20;
@@ -366,11 +366,11 @@
       }
       jawCurrent += (jawTarget - jawCurrent) * 0.3;
       cfg.jaw.style.transform = `translateX(-50%) translateZ(30px) rotateX(${jawCurrent}deg)`;
-
+ 
       requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
-
+ 
     return {
       startTalk(){
         talking = true;
@@ -384,7 +384,7 @@
       }
     };
   }
-
+ 
   const head1 = initHead({
     rotateWrap: document.getElementById('rotateWrap1'),
     jaw: document.getElementById('jaw1'),
@@ -399,10 +399,10 @@
     scaleWrap: document.getElementById('scaleWrap2'),
     glow: document.getElementById('glow2')
   });
-
+ 
   /* ---------- shared speech helper ---------- */
   const synthesis = window.speechSynthesis;
-
+ 
   function speak(text, { onStart, onEnd } = {}){
     synthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
@@ -417,13 +417,13 @@
     synthesis.speak(utterance);
   }
   window.speechSynthesis.onvoiceschanged = function(){ synthesis.getVoices(); };
-
+ 
   const PAPER_SUMMARY = "Hi there! I'm Wytze's research assistant. His paper introduces a disturbance-observer-enhanced controller. Basically, it estimates unknown problems like pump-flow loss and compensates for them immediately. In his simulations, this reduced tracking errors by ninety-eight point five-five percent compared to standard methods, all while avoiding the high-frequency vibrations common in other controllers. It's a major step for robust liquid-level regulation.";
-
+ 
   /* ---------- Avatar #1: paper explainer ---------- */
   let isAssistantActive = false;
   const bubble = document.getElementById('speechBubble');
-
+ 
   function toggleAssistant(){
     if (!isAssistantActive){
       bubble.style.display = 'block';
@@ -439,18 +439,18 @@
       isAssistantActive = false;
     }
   }
-
+ 
   /* ---------- Avatar #2: live chatbot ---------- */
   let isChatOpen = false;
   let chatServerUrl = '';
-
+ 
   const chatPanel = document.getElementById('chatPanel');
   const chatLog = document.getElementById('chatLog');
   const chatInput = document.getElementById('chatInput');
   const chatSendBtn = document.getElementById('chatSendBtn');
   const chatSettings = document.getElementById('chatSettings');
   const chatServerUrlInput = document.getElementById('chatServerUrl');
-
+ 
   function toggleChat(){
     isChatOpen = !isChatOpen;
     chatPanel.style.display = isChatOpen ? 'block' : 'none';
@@ -462,15 +462,15 @@
       chatSettings.classList.add('show');
     }
   }
-
+ 
   function toggleChatSettings(){ chatSettings.classList.toggle('show'); }
-
+ 
   function saveChatSettings(){
     chatServerUrl = chatServerUrlInput.value.trim().replace(/\/$/, '');
     chatSettings.classList.remove('show');
     if (chatServerUrl) addChatMessage('bot', 'Connected. Ask me anything.');
   }
-
+ 
   function addChatMessage(who, text){
     const el = document.createElement('div');
     el.className = 'chat-msg ' + (who === 'user' ? 'user' : '');
@@ -480,29 +480,29 @@
     chatLog.scrollTop = chatLog.scrollHeight;
     return el;
   }
-
+ 
   function speakAsBot2(text){
     speak(text, {
       onStart: () => head2.startTalk(),
       onEnd: () => head2.stopTalk()
     });
   }
-
+ 
   async function sendChatMessage(){
     const question = chatInput.value.trim();
     if (!question) return;
-
+ 
     if (!chatServerUrl){
       chatSettings.classList.add('show');
       addChatMessage('bot', 'Please set the ngrok server URL first (click "server settings" above).');
       return;
     }
-
+ 
     addChatMessage('user', question);
     chatInput.value = '';
     chatSendBtn.disabled = true;
     const thinkingEl = addChatMessage('bot', 'Thinking...');
-
+ 
     try {
       const res = await fetch(chatServerUrl + '/ask', {
         method: 'POST',
@@ -521,17 +521,17 @@
       chatSendBtn.disabled = false;
     }
   }
-
+ 
   async function explainPaper(){
     if (!isChatOpen) toggleChat();
     const prompt = "Explain my DO-BSSTC control paper in a short, engaging way for a visitor to my site.";
-
+ 
     if (!chatServerUrl){
       addChatMessage('bot', PAPER_SUMMARY);
       speakAsBot2(PAPER_SUMMARY);
       return;
     }
-
+ 
     addChatMessage('user', prompt);
     chatSendBtn.disabled = true;
     const thinkingEl = addChatMessage('bot', 'Thinking...');
@@ -555,6 +555,6 @@
     }
   }
 </script>
-
+ 
 </body>
 </html>
